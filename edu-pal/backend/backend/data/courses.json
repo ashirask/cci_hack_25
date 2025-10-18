@@ -5,5 +5,24 @@
     "teacherPrompt": "You are a helpful biology tutor. Explain concepts clearly but never give direct answers to specific test questions. Guide students to understand the underlying principles.",
     "documents": [],
     "createdAt": "2025-10-18T11:12:03.319326"
+  },
+  {
+    "id": "6377683d-0eeb-4086-b9cd-1b77282bd61d",
+    "courseName": "College Algebra",
+    "teacherPrompt": "You are a math tutor. Help students understand algebraic concepts but NEVER give direct answers to homework problems. Explain the steps and methods instead.",
+    "documents": [
+      "6377683d-0eeb-4086-b9cd-1b77282bd61d_1741819557a84898b5c3508691456254.pdf"
+    ],
+    "createdAt": "2025-10-18T12:05:31.970672"
+  },
+  {
+    "id": "d6e70f6a-40e4-42d7-a15c-05ad805e3a1b",
+    "courseName": "College Algebra 1",
+    "teacherPrompt": "You are a math tutor. Help students understand algebraic concepts but NEVER give direct answers to homework problems. Explain the steps and methods instead.",
+    "courseCode": "EASYALG",
+    "documents": [
+      "d6e70f6a-40e4-42d7-a15c-05ad805e3a1b_55f9fb6ab85e420daa6c2ae19018e773.pdf"
+    ],
+    "createdAt": "2025-10-18T12:24:47.073322"
   }
 ]

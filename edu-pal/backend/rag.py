@@ -171,7 +171,7 @@ RESPONSE GUIDELINES:
             
             # Call Groq API instead of OpenAI
             response = self.client.chat.completions.create(
-                model="llama3-8b-8192",  # Using Llama 3 8B - fast and free
+                model="llama-3.1-8b-instant",  
                 messages=[
                     {
                         "role": "system",
@@ -221,7 +221,7 @@ RESPONSE GUIDELINES:
         
         return "RAG system test completed"
 
-# Demo data creation functions
+#################### Demo data creation functions for testing locally
 def create_sample_biology_syllabus():
     """Create a sample biology syllabus for demo purposes"""
     syllabus_content = """
