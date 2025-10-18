@@ -1,0 +1,31 @@
+
+BIOLOGY 101 - INTRODUCTION TO BIOLOGY
+Instructor: Dr. Jane Smith
+Semester: Fall 2024
+
+COURSE DESCRIPTION:
+This course introduces fundamental concepts in biology, including cell structure, genetics, evolution, and ecology. Students will develop scientific reasoning skills and understand the principles governing living organisms.
+
+LEARNING OBJECTIVES:
+1. Understand cell structure and function
+2. Explain genetic inheritance and DNA replication
+3. Describe evolutionary processes and natural selection
+4. Analyze ecosystem dynamics and energy flow
+
+TOPICS COVERED:
+- Cell Biology: Prokaryotic vs eukaryotic cells, organelles, cellular respiration
+- Genetics: Mendelian inheritance, DNA structure, protein synthesis
+- Evolution: Natural selection, adaptation, speciation
+- Ecology: Food webs, nutrient cycles, biodiversity
+
+ASSESSMENTS:
+- Weekly Quizzes: 20%
+- Lab Reports: 30%
+- Midterm Exam: 25%
+- Final Exam: 25%
+
+GRADING POLICY:
+Grades are based on demonstrated understanding of concepts rather than memorization. Critical thinking and application of knowledge are emphasized.
+
+ACADEMIC INTEGRITY:
+All work must be original. Collaboration is encouraged but students must submit their own work.

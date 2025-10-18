@@ -1,14 +1,11 @@
 # Reads PDFs and extracts text
-
 # Combines teacher's prompt + PDF content + student question
-
-# Calls OpenAI API
-
+# Calls Groq API
 # Returns educated, rule-following answers
 
 import os
 import json
-from openai import OpenAI
+from groq import Groq
 import PyPDF2
 import re
 from typing import List, Dict, Optional
@@ -20,7 +17,8 @@ load_dotenv()
 
 class SimpleRAG:
     def __init__(self):
-        self.client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+        # Initialize Groq client instead of OpenAI
+        self.client = Groq(api_key=os.getenv("GROQ_API_KEY"))
         self.encoding = tiktoken.get_encoding("cl100k_base")
         self.max_context_tokens = 4000  # Reserve context window for conversation
         
@@ -28,7 +26,7 @@ class SimpleRAG:
         self.documents_dir = "backend/data/documents"
         os.makedirs(self.documents_dir, exist_ok=True)
         
-        print("🤖 RAG System Initialized")
+        print("🤖 RAG System Initialized with Groq")
 
     def count_tokens(self, text: str) -> int:
         """Count tokens in text for context management"""
@@ -171,9 +169,9 @@ RESPONSE GUIDELINES:
             # Build the system prompt with teacher's rules
             system_prompt = self.build_system_prompt(course, context)
             
-            # Call OpenAI API
+            # Call Groq API instead of OpenAI
             response = self.client.chat.completions.create(
-                model="gpt-3.5-turbo",  # Using 3.5 for cost efficiency, can upgrade to gpt-4
+                model="llama3-8b-8192",  # Using Llama 3 8B - fast and free
                 messages=[
                     {
                         "role": "system",
@@ -315,7 +313,7 @@ rag_system = SimpleRAG()
 
 if __name__ == "__main__":
     # Test the RAG system
-    print("🚀 Testing EduPal RAG System...")
+    print("🚀 Testing EduPal RAG System with Groq...")
     
     # Create demo documents
     syllabus_file = create_sample_biology_syllabus()

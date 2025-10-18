@@ -1,0 +1,31 @@
+
+LECTURE 3: PHOTOSYNTHESIS
+
+Key Concepts:
+- Photosynthesis converts light energy to chemical energy
+- Occurs in chloroplasts of plant cells
+- Overall equation: 6CO₂ + 6H₂O + light → C₆H₁₂O₆ + 6O₂
+
+Two Main Stages:
+1. Light-Dependent Reactions:
+   - Location: Thylakoid membranes
+   - Input: Light, water
+   - Output: ATP, NADPH, oxygen
+   - Photosystems II and I capture light energy
+
+2. Light-Independent Reactions (Calvin Cycle):
+   - Location: Stroma
+   - Input: CO₂, ATP, NADPH
+   - Output: Glucose
+   - Carbon fixation using RuBisCO enzyme
+
+Factors Affecting Photosynthesis:
+- Light intensity
+- CO₂ concentration
+- Temperature
+- Water availability
+
+Importance:
+- Primary energy source for most ecosystems
+- Oxygen production for aerobic organisms
+- Carbon dioxide consumption
