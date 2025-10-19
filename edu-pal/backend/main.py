@@ -281,6 +281,33 @@ async def chat_with_ai(chat_request: ChatRequest):
         print(f"❌ Error in chat: {e}")
         raise HTTPException(status_code=500, detail=f"AI service error: {str(e)}")
 
+@app.delete("/courses/{course_id}")
+async def delete_course(course_id: str):
+    """Delete a course and its associated files"""
+    try:
+        courses = load_courses()
+        course_to_delete = next((c for c in courses if c["id"] == course_id), None)
+        
+        if not course_to_delete:
+            raise HTTPException(status_code=404, detail="Course not found")
+        
+        # Remove associated files
+        for doc_path in course_to_delete.get("documents", []):
+            full_path = os.path.join(DOCUMENTS_DIR, doc_path)
+            if os.path.exists(full_path):
+                os.remove(full_path)
+        
+        # Remove course from list
+        courses = [c for c in courses if c["id"] != course_id]
+        save_courses(courses)
+        
+        print(f"🗑️ Course deleted: {course_to_delete['courseName']}")
+        return {"message": "Course deleted successfully"}
+        
+    except Exception as e:
+        print(f"❌ Error deleting course: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to delete course: {str(e)}")
+
 # Error handlers
 @app.exception_handler(500)
 async def internal_server_error_handler(request, exc):
