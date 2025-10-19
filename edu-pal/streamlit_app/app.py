@@ -5,48 +5,60 @@ from requests.exceptions import ConnectionError
 # Your backend URL
 BACKEND_URL = "http://localhost:8000"
 
-# Teacher password (for demo - in real app, use proper auth)
-TEACHER_PASSWORD = "teacher123"
-
 def main():
-    st.title("🎓 EduPal - AI Study Partner")
+    # Initialize session state for role
+    if "user_role" not in st.session_state:
+        st.session_state.user_role = None
     
-    # Check if backend is running
-    if not check_backend_connection():
-        st.error("🚨 Backend server is not running! Please start the backend first.")
-        st.info("**To fix this:** Open a terminal and run: `cd backend && python main.py`")
-        return
+    # Welcome page - if no role selected yet
+    if st.session_state.user_role is None:
+        welcome_page()
+    else:
+        # Show the appropriate dashboard based on selected role
+        if st.session_state.user_role == "student":
+            student_view()
+        else:
+            teacher_view()
+
+def welcome_page():
+    st.title("🎓 Welcome to EduPal!")
+    st.markdown("### Your AI-Powered Learning Companion")
     
-    # Role selection with tabs
-    tab1, tab2 = st.tabs(["🎒 Student Portal", "👨‍🏫 Teacher Portal"])
+    st.markdown("---")
     
-    with tab1:
-        student_view()
+    col1, col2 = st.columns(2)
     
-    with tab2:
-        teacher_view()
+    with col1:
+        st.subheader("🎒 Student")
+        st.markdown("""
+        - Access AI tutors for your courses
+        - Get personalized learning help
+        - Understand concepts, not just answers
+        """)
+        if st.button("I'm a Student →", use_container_width=True, key="student_btn"):
+            st.session_state.user_role = "student"
+            st.rerun()
+    
+    with col2:
+        st.subheader("👨‍🏫 Teacher")
+        st.markdown("""
+        - Create custom AI tutors for your courses
+        - Upload course materials
+        - Set learning guidelines
+        """)
+        if st.button("I'm a Teacher →", use_container_width=True, key="teacher_btn"):
+            st.session_state.user_role = "teacher"
+            st.rerun()
+    
+    st.markdown("---")
+    st.info("💡 **Demo Tip**: Open two browser tabs - one as Teacher, one as Student to see the full experience!")
 
 def teacher_view():
-    st.header("Teacher Portal")
+    st.header("👨‍🏫 Teacher Dashboard")
     
-    # Teacher authentication
-    if "teacher_authenticated" not in st.session_state:
-        st.session_state.teacher_authenticated = False
-    
-    if not st.session_state.teacher_authenticated:
-        st.subheader("Teacher Login")
-        password = st.text_input("Enter teacher password:", type="password")
-        if st.button("Login"):
-            if password == TEACHER_PASSWORD:
-                st.session_state.teacher_authenticated = True
-                st.rerun()
-            else:
-                st.error("Incorrect password!")
-        return
-    
-    # Logout button
-    if st.button("Logout"):
-        st.session_state.teacher_authenticated = False
+    # Back to role selection
+    if st.button("← Back to Role Selection"):
+        st.session_state.user_role = None
         st.rerun()
     
     try:
@@ -74,9 +86,7 @@ def teacher_view():
                         )
                         if response.status_code == 200:
                             st.success("✅ Course created successfully!")
-                            # Don't show error even if it appears - the course actually gets created
                         else:
-                            # Course might still be created despite error message
                             st.info("Course may have been created. Check the list below.")
                     except ConnectionError:
                         st.error("Cannot connect to backend server!")
@@ -114,16 +124,29 @@ def teacher_view():
                     st.error("Upload failed for all files")
             
             # Show existing courses and their documents
-            st.subheader("Existing Courses & Materials")
+            st.subheader("Your Courses")
             for course in courses:
                 with st.expander(f"📚 {course['courseName']}"):
                     st.write(f"**AI Instructions:** {course['teacherPrompt']}")
                     if course.get('documents'):
                         st.write("**Uploaded Files:**")
                         for doc in course['documents']:
-                            st.write(f"• {doc.split('_')[-1]}")  # Show just filename
+                            # Show clean filename
+                            original_filename = '_'.join(doc.split('_')[2:])
+                            st.write(f"• {original_filename}")
                     else:
                         st.write("No files uploaded yet")
+                    
+                    # 🆕 SIMPLE DELETE BUTTON INSIDE EXPANDER
+                    if st.button("🗑️ Delete Course", key=f"delete_{course['id']}"):
+                        try:
+                            response = requests.delete(f"{BACKEND_URL}/courses/{course['id']}")
+                            if response.status_code == 200:
+                                st.success(f"Deleted '{course['courseName']}'!")
+                                st.rerun()
+                        except:
+                            st.error("Delete failed")
+
         else:
             st.info("No courses created yet. Use the form above to create your first course!")
             
@@ -131,7 +154,12 @@ def teacher_view():
         st.error("Cannot connect to backend. Make sure it's running on localhost:8000")
 
 def student_view():
-    st.header("Student Portal")
+    st.header("🎒 Student Dashboard")
+    
+    # Back to role selection
+    if st.button("← Back to Role Selection"):
+        st.session_state.user_role = None
+        st.rerun()
     
     # Initialize chat history in session state
     if "chat_history" not in st.session_state:
@@ -146,15 +174,22 @@ def student_view():
             selected_course_name = st.selectbox("Select a course:", list(course_options.keys()))
             course_id = course_options[selected_course_name]
             
-            # Show course info
+            # Show course info (but NOT the prompt given by the teacher)
             selected_course = next((c for c in courses if c['id'] == course_id), None)
             if selected_course:
-                with st.expander("📖 Course Information"):
-                    st.write(f"**AI Tutor Instructions:** {selected_course['teacherPrompt']}")
+                with st.expander("📖 About This Course"):
                     if selected_course.get('documents'):
-                        st.write("**Available Materials:**")
+                        st.write("**Available Study Materials:**")
                         for doc in selected_course['documents']:
-                            st.write(f"• {doc.split('_')[-1]}")
+                            # Show just the UUID part (last part after underscore)
+                            if '_' in doc:
+                                clean_name = doc.split('_')[-1]
+                                st.write(f"• {clean_name}")
+                            else:
+                                st.write(f"• {doc}")
+                    else:
+                        st.write("No study materials uploaded yet")
+
             
             # Initialize chat history for this course
             if course_id not in st.session_state.chat_history:

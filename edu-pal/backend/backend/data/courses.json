@@ -1,21 +1,5 @@
 [
   {
-    "id": "9c7a63e7-7c74-4bba-a3f7-1d1fa6f3cfe9",
-    "courseName": "Biology 101 - Demo",
-    "teacherPrompt": "You are a helpful biology tutor. Explain concepts clearly but never give direct answers to specific test questions. Guide students to understand the underlying principles.",
-    "documents": [],
-    "createdAt": "2025-10-18T11:12:03.319326"
-  },
-  {
-    "id": "6377683d-0eeb-4086-b9cd-1b77282bd61d",
-    "courseName": "College Algebra",
-    "teacherPrompt": "You are a math tutor. Help students understand algebraic concepts but NEVER give direct answers to homework problems. Explain the steps and methods instead.",
-    "documents": [
-      "6377683d-0eeb-4086-b9cd-1b77282bd61d_1741819557a84898b5c3508691456254.pdf"
-    ],
-    "createdAt": "2025-10-18T12:05:31.970672"
-  },
-  {
     "id": "d6e70f6a-40e4-42d7-a15c-05ad805e3a1b",
     "courseName": "College Algebra 1",
     "teacherPrompt": "You are a math tutor. Help students understand algebraic concepts but NEVER give direct answers to homework problems. Explain the steps and methods instead.",
@@ -25,20 +9,6 @@
       "d6e70f6a-40e4-42d7-a15c-05ad805e3a1b_7f14433028d64266a80e769c1dba8f78.pdf"
     ],
     "createdAt": "2025-10-18T12:24:47.073322"
-  },
-  {
-    "id": "2d28c4cd-a71b-41d7-a684-f08a2c5d6c26",
-    "courseName": "College Algebra",
-    "teacherPrompt": "You are a helpful tutor. Explain concepts clearly but never give direct answers to test questions. Guide students to understand the underlying principles.",
-    "documents": [],
-    "createdAt": "2025-10-18T14:34:59.280916"
-  },
-  {
-    "id": "96a374ac-6ae8-4d77-ba9f-aeecf7b3c5b5",
-    "courseName": "Calc1",
-    "teacherPrompt": "You are a helpful tutor. Explain concepts clearly but never give direct answers to test questions. Guide students to understand the underlying principles.",
-    "documents": [],
-    "createdAt": "2025-10-18T14:36:56.246390"
   },
   {
     "id": "bb5ff5f6-b290-416b-bc71-eca9e8d15387",
@@ -51,13 +21,13 @@
     "createdAt": "2025-10-18T14:49:11.087066"
   },
   {
-    "id": "8526d043-8d65-44a5-9da2-4253250ff31b",
+    "id": "165c8b84-efc3-4e57-8957-8cba387ff97e",
     "courseName": "Physics 101",
-    "teacherPrompt": "You are a helpful tutor. Explain concepts clearly but never give direct answers to test questions. Guide students to understand the underlying principles.\n\nHave a friendly tone when talking to the students. \n\nNO HALLUCINATIONS",
+    "teacherPrompt": "You are a helpful tutor. Explain concepts clearly but never give direct answers to test questions. Guide students to understand the underlying principles.",
     "documents": [
-      "8526d043-8d65-44a5-9da2-4253250ff31b_9b600c2d86024f6fbdb3860da016f4b1.pdf",
-      "8526d043-8d65-44a5-9da2-4253250ff31b_d48f7330f2684199b677312bff9a6b5a.pdf"
+      "165c8b84-efc3-4e57-8957-8cba387ff97e_95375be2ea3540a58ea698efd885c86b.pdf",
+      "165c8b84-efc3-4e57-8957-8cba387ff97e_02ed1c4dfabd442ebede4da33923c2fa.pdf"
     ],
-    "createdAt": "2025-10-18T15:07:02.359733"
+    "createdAt": "2025-10-19T00:45:14.184204"
   }
 ]
