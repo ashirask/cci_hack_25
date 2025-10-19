@@ -1,7 +1,7 @@
 # TEAM **Git-iT** 
 CCI Start-up Hackathon 2025
 
-# EduPal - AI-Powered Learning Assistant
+# LOCKIN - AI-Powered Learning Assistant
 
 > Teacher-controlled AI tutoring that prevents cheating while providing personalized learning
 
