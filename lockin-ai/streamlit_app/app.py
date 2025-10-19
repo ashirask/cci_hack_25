@@ -21,7 +21,7 @@ def main():
             teacher_view()
 
 def welcome_page():
-    st.title("🎓 Welcome to EduPal!")
+    st.title("🎓 Welcome to LOCKIN AI!")
     st.markdown("### Your AI-Powered Learning Companion")
     
     st.markdown("---")
@@ -31,7 +31,7 @@ def welcome_page():
     with col1:
         st.subheader("🎒 Student")
         st.markdown("""
-        - Access AI tutors for your courses
+        - Access Teacher made AI for your courses
         - Get personalized learning help
         - Understand concepts, not just answers
         """)
@@ -42,7 +42,7 @@ def welcome_page():
     with col2:
         st.subheader("👨‍🏫 Teacher")
         st.markdown("""
-        - Create custom AI tutors for your courses
+        - Create custom AI for your courses
         - Upload course materials
         - Set learning guidelines
         """)
@@ -51,7 +51,6 @@ def welcome_page():
             st.rerun()
     
     st.markdown("---")
-    st.info("💡 **Demo Tip**: Open two browser tabs - one as Teacher, one as Student to see the full experience!")
 
 def teacher_view():
     st.header("👨‍🏫 Teacher Dashboard")

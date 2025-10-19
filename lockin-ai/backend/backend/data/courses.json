@@ -21,13 +21,14 @@
     "createdAt": "2025-10-18T14:49:11.087066"
   },
   {
-    "id": "165c8b84-efc3-4e57-8957-8cba387ff97e",
+    "id": "9f45b15d-7533-488e-89a7-e64753eff6cb",
     "courseName": "Physics 101",
     "teacherPrompt": "You are a helpful tutor. Explain concepts clearly but never give direct answers to test questions. Guide students to understand the underlying principles.",
     "documents": [
-      "165c8b84-efc3-4e57-8957-8cba387ff97e_95375be2ea3540a58ea698efd885c86b.pdf",
-      "165c8b84-efc3-4e57-8957-8cba387ff97e_02ed1c4dfabd442ebede4da33923c2fa.pdf"
+      "9f45b15d-7533-488e-89a7-e64753eff6cb_44071c8d78e04e4c8a5e6ffaf46b6571.pdf",
+      "9f45b15d-7533-488e-89a7-e64753eff6cb_6fdae7905c624ab7a01c82191092a7c9.pdf",
+      "9f45b15d-7533-488e-89a7-e64753eff6cb_c0a21ea876dd4ee39c65100b5f0b9316.pdf"
     ],
-    "createdAt": "2025-10-19T00:45:14.184204"
+    "createdAt": "2025-10-19T10:03:56.798469"
   }
 ]

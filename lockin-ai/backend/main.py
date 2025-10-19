@@ -25,7 +25,7 @@ except ImportError:
     rag_system = None
 
 app = FastAPI(
-    title="EduPal API",
+    title="LOCKIN API",
     description="AI-powered educational assistant with teacher-controlled RAG",
     version="1.0.0"
 )
